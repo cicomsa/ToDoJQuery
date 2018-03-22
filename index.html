@@ -104,6 +104,7 @@
   <script>
   	// JavaScript here...
     //$("#total-count").html($(".todo").length);
+
     function updateCounters() {
       var todoCount = $(".todo").length;
       var completedCount = $(".completed").length;
@@ -113,7 +114,7 @@
       $("#todo-count").html(todoCount - completedCount);
     }
 
-    updateCounters()
+
 
     function toggleDone() {
       var checkbox = this;
@@ -121,10 +122,10 @@
       $(checkbox).parent().toggleClass("completed");
     }
 
-    $("#total-count").html($(".todo").length);
-
-
-
+    $(document).ready(function() {
+      $("input[type=checkbox]").on('change', toggleDone);
+      updateCounters();
+    });
 
 
   </script>
